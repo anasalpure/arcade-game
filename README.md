@@ -7,7 +7,7 @@ HOW FAST ARE YOU?
 ## about game
 
 Hi there! this is a small project programmed using java script.  
-We use The HTML `<canvas>` element.  
+We used The HTML `<canvas>` element.  
 It is used to draw graphics on a web page.  
 The code is implemented using JavaScript OOP features.  
 

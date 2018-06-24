@@ -1,6 +1,7 @@
 "use strict"; 
+
 //select score span to update score
-scoreSpan =document.querySelector('#score');
+var scoreSpan =document.querySelector('#score');
 // Enemies our player must avoid
 var Enemy = function(row =1 ,speed=10) {
     // Variables applied to each of our instances go here,
@@ -35,7 +36,10 @@ Enemy.prototype.render = function() {
 var Player = function (){
     this.x = 2
     this.y = 3
-    this.sprite = 'images/char-boy.png';
+    this.sprites =['images/char-boy.png', 'images/char-cat-girl.png' , 'images/char-horn-girl.png' ,
+                  'images/char-pink-girl.png' , 'images/char-princess-girl.png'];
+    this.selectedSprite=0;
+    this.sprite = this.sprites[this.selectedSprite];
     this.score=0;
 };
 // This class requires an update(), render() and
@@ -71,7 +75,6 @@ Player.prototype.passed=function(){
     this.score++;
     this.x = 2
     this.y = 3
-    console.log( "score : " + this.score);
     scoreSpan.textContent =this.score + " points";
 
 };
@@ -91,7 +94,14 @@ Player.prototype.reset=function(){
     this.x = 2
     this.y = 3
 };
-
+ 
+// change the animation that represent the player
+Player.prototype.changePlayer=function(){
+    this.selectedSprite++;
+    if (this.selectedSprite == this.sprites.length) 
+        this.selectedSprite=0
+    this.sprite = this.sprites[this.selectedSprite];
+ };
 
 
 // Now instantiate your objects.
@@ -114,6 +124,9 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+document.getElementById('changePlayer').addEventListener('click',function(){
+    player.changePlayer();
+});
 
 
 
