@@ -85,11 +85,10 @@ Player.prototype.reset=function(){
     else if(this.score != 0){
         this.score--;
         scoreSpan.textContent =this.score + " points";
-        this.x = 2
-        this.y = 3
-        console.log( "score : " + this.score)
     }
 
+    this.x = 2
+    this.y = 3
 };
 
 
