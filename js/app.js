@@ -1,3 +1,4 @@
+"use strict"; 
 //select score span to update score
 scoreSpan =document.querySelector('#score');
 // Enemies our player must avoid
